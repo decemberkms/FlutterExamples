@@ -15,15 +15,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final List<String> restaurants = const [
-    'eattttttttttttttttttttttttttt!!!!!!!!!!!!!!!!!!!!!!!!!!!!!',
-    'McDonalds\'s',
-    'Indian food',
-    'Thai food',
-    'Korean food',
-    'German food',
-    'Chinese food',
-    'Japanese food'
+  final restaurants = const [
+    {'restaurant': 'eatttttttttttttttttttttt', 'color': Colors.black},
+    {'restaurant': 'McDonalds\'s', 'color': Colors.blue},
+    {'restaurant': 'Thai', 'color': Colors.red},
+    {'restaurant': 'Korean', 'color': Colors.yellow},
+    {'restaurant': 'Chinese', 'color': Colors.indigo},
+    {'restaurant': 'Japanese', 'color': Colors.teal}
   ];
 
   int currentIndex = 0;
@@ -39,10 +37,11 @@ class _MyAppState extends State<MyApp> {
               Text('What do you want to eat?'),
               if (currentIndex != null)
                 Text(
-                  restaurants.elementAt(currentIndex),
+                  restaurants.elementAt(currentIndex)['restaurant'] as String,
                   style: TextStyle(
                     fontSize: 30,
-                    color: Colors.redAccent,
+                    color:
+                        restaurants.elementAt(currentIndex)['color'] as Color,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
