@@ -8,7 +8,11 @@ class FlashcardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-      child: Center(child: Text(text as String)),
+      child: Center(
+          child: Text(
+        text as String,
+        textAlign: TextAlign.center,
+      )),
     );
   }
 }

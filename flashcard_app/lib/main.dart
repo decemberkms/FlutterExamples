@@ -48,12 +48,16 @@ class _MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   OutlineButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      showPreviousCard();
+                    },
                     icon: Icon(Icons.chevron_left),
                     label: Text('Prev'),
                   ),
                   OutlineButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      showNextCard();
+                    },
                     icon: Icon(Icons.chevron_right),
                     label: Text('Next'),
                   )
@@ -64,5 +68,17 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+
+  void showNextCard() {
+    setState(() {
+      _currentIndex =
+          _currentIndex + 1 < _flashcards.length ? _currentIndex + 1 : 0;
+    });
+  }
+
+  void showPreviousCard() {
+    _currentIndex =
+        (_currentIndex - 1 >= 0) ? _currentIndex - 1 : _flashcards.length - 1;
   }
 }
